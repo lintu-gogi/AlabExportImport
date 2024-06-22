@@ -1,8 +1,9 @@
 //import "./styles.css";
-import  "./subMenu.js";
-import buildSubmenu from "./subMenu.js";
+import * as subM from "./subMenu.js";
+//import buildSubmenu from "./subMenu.js";
 let colorVal='var(--main-bg)';
 let colorNav='var(--top-menu-bg)';
+
 // Menu data structure
 /*var menuLinks = [
     { text: 'about', href: '/about' },
@@ -112,7 +113,7 @@ if(e.target.classList!="active"){
         if(item.subLinks)
           {
             subMenuEl.style.top="100%";
-            buildSubmenu(item.subLinks,subMenuEl);
+            subM.buildSubmenu(item.subLinks,subMenuEl);
 
             console.log(" Sublinks= "+item.subLinks);
 
@@ -127,27 +128,9 @@ if(e.target.classList!="active"){
 });
 
   
-/*function buildSubmenu(sLinks){
-let anchor;
-let obj;
-for(let i=0;i<sLinks.length;i++){
-    
-    anchor= document.createElement("a");
-    obj=new Object();
-    obj=sLinks[i];
-    //console.log(obj);
-   
-    Object.entries(obj).forEach(([key, value]) => {
-        if(key=='href')
-        anchor.setAttribute(key,value);
-        if(key=='text')
-        anchor.textContent=value;
-       
-      });
-   
-      subMenuEl.appendChild(anchor);
-   
-}*/
+function buildSubmenu(sLinks,subMenuEl){
+  subM.buildSubmenuFromEx(sLinks,subMenuEl);
+
 let subMenuLinks= document.querySelectorAll("#sub-menu a");
 subMenuEl.addEventListener("click",(e)=>{
   e.preventDefault();

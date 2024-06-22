@@ -1,5 +1,5 @@
 
-export function buildSubmenu(sLinks,subMenuEl){
+export function buildSubmenuFromEx(sLinks,subMenuEl){
 let anchor;
 let obj;
 for(let i=0;i<sLinks.length;i++){
